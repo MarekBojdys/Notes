@@ -2,6 +2,8 @@ package com.notes.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -43,5 +45,14 @@ public class UserServiceImpl implements UserService {
 	
 	public void deleteUser(String login) {
 		userRepository.delete(userRepository.findByLogin(login));
+	}
+	
+	public User getCurrentUser() {
+		return userRepository.findByLogin(getCurrentLogin());
+	}
+	
+	private String getCurrentLogin() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		return authentication.getName();
 	}
 }

@@ -11,6 +11,9 @@
 	<a href="#" th:href="@{/deleteNote}">Delete note</a>
 	<a href="#" th:href="@{/logout}">Logout</a>
 	
+	<h1>Your login and encrypted password: </h1>
+	<p th:text="${loginPassword.login}"></p>
+	<p th:text="${loginPassword.password}"></p>
 	<h1>All Notes:</h1>
   
     <div  th:each="note: ${notes}" th:object="${note}">
