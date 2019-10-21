@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Homepage</title>
+</head>
+<body>
+	<h1>Welcome in Admin Panel</h1>
+	<a href="#" th:href="@{/register}">Add new user</a>
+	<a href="#" th:href="@{/delete}">Delete user</a>
+	<a href="#" th:href="@{/logout}">Logout</a>
+	
+	<h1>All Users:</h1>
+    <ul th:remove="all-but-first">
+        <li th:each="user: ${users}" th:text="|${user.login} - ${user.password}|">User 1</li>
+        <li>User 2</li>
+    </ul>
+</body>
+</html>

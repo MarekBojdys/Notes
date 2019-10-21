@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Homepage</title>
+</head>
+<body>
+	<h1>Welcome in Spring security with user database</h1>
+	<a href="#" th:href="@{/admin}">Admin Panel</a>
+	<a href="#" th:href="@{/addNote}">Add note</a>
+	<a href="#" th:href="@{/deleteNote}">Delete note</a>
+	<a href="#" th:href="@{/logout}">Logout</a>
+	
+	<h1>All Notes:</h1>
+  
+    <div  th:each="note: ${notes}" th:object="${note}">
+    	<h1 th:text="*{id}"></h1>
+    	<h1 th:text="*{header}"></h1>
+    	<p th:text="*{content}"></p>
+    </div>
+ 
+</body>
+</html>

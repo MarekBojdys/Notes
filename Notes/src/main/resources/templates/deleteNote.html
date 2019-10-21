@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Registration form</title>
+</head>
+<body>
+	<h1>Add note</h1>
+	<form action="#" method="post" th:action="@{/deleteNote}" th:object="${note}">
+		<input th:field="*{id}" placeholder="Id" /><br />
+		<input type="submit" value="Delete note by id" />
+	</form>
+</body>
+</html>
